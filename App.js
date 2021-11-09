@@ -21,8 +21,7 @@ export default function App() {
   const [userNumber, setUserNumebr] = useState();
   const [guessRounds, setGuessRounds] = useState(0);
   const [dataLoaded, setDataLoaded] = useState(false);
-  console.log(AppLoading);
-  console.log('dataLoaded: ' + dataLoaded);
+
   if (!dataLoaded) {
     return <AppLoading
       startAsync={fetchFonts}
