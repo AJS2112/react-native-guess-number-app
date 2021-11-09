@@ -4,8 +4,8 @@ import Card from "../components/Card";
 import CustomColors from "../constants/CustomColors";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
-import DefaultStyles
-    from "../constants/DefaultStyles";
+import DefaultStyles from "../constants/DefaultStyles";
+
 const StartGameScreeen = props => {
     const [enteredValue, setEnteredValue] = useState('');
     const [confirmed, setConfirmed] = useState(false);
