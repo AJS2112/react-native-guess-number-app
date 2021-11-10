@@ -15,7 +15,14 @@ const generateRandomBetween = (min, max, exclude) => {
     } else {
         return rndNum;
     }
-}
+};
+
+const renderListItem = (value, numOfRound) => (
+    <View key={value} style={styles.listItem}>
+        <Text style={DefaultStyles.bodyText}>#{numOfRound}</Text>
+        <Text style={DefaultStyles.bodyText}>{value}</Text>
+    </View>
+);
 
 const GameScreen = props => {
     const initialGuess = generateRandomBetween(1, 100, props.userChoice);
@@ -62,13 +69,11 @@ const GameScreen = props => {
                     <Ionicons name="md-add" size={24} color="white" />
                 </MainButton>
             </Card>
-            <ScrollView>
-                {pastGuesses.map(guess => (
-                    <View key={guess}>
-                        <Text>{guess}</Text>
-                    </View>
-                ))}
-            </ScrollView>
+            <View style={styles.list}>
+                <ScrollView>
+                    {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
+                </ScrollView>
+            </View>
         </View>
     );
 };
@@ -85,6 +90,19 @@ const styles = StyleSheet.create({
         marginTop: 20,
         width: 300,
         maxWidth: '90%'
+    },
+    listItem: {
+        borderColor: '#ccc',
+        borderWidth: 1,
+        padding: 15,
+        marginVertical: 10,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        justifyContent: 'space-around'
+    },
+    list: {
+        flex: 1,
+        width: '80%'
     }
 });
 
